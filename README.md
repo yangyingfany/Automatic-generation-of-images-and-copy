@@ -79,7 +79,7 @@ python main.py
 修改生成主题：
 编辑 main.py 文件最后部分：
 
-python
+
 if __name__ == "__main__":
     USER_TOPIC = "你想要的主题"  # 修改这里
      例如：
