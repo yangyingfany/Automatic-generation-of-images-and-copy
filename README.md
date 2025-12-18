@@ -25,55 +25,55 @@ DEEPSEEK_API_KEY = "sk-7b64922f9d6848f99f53204229c9cddb"  # ← 替换为你的D
 
 步骤2：获取API密钥
 
-# Coze API密钥获取：
-# 访问 https://www.coze.cn/open
-# 注册/登录 → 工作台 → 获取 Bot ID 和 API Key
-# DeepSeek API密钥获取：
-# 访问 https://platform.deepseek.com/
-# 注册/登录 → API管理 → 创建API密钥
+ Coze API密钥获取：
+ 访问 https://www.coze.cn/open
+ 注册/登录 → 工作台 → 获取 Bot ID 和 API Key
+ DeepSeek API密钥获取：
+ 访问 https://platform.deepseek.com/
+ 注册/登录 → API管理 → 创建API密钥
 
 步骤3：填写并保存
-# 编辑保存后运行
+ 编辑保存后运行
 python main.py
 
 ## 🛠️ 环境要求
 软件要求：
-bash
-# Python 3.8+（必须安装并添加到系统PATH）
-# 下载地址：https://www.python.org/downloads/
 
-# ComfyUI（本地运行，用于图像生成）
-# 下载地址：https://github.com/comfyanonymous/ComfyUI
+ Python 3.8+（必须安装并添加到系统PATH）
+ 下载地址：https://www.python.org/downloads/
+
+ ComfyUI（本地运行，用于图像生成）
+ 下载地址：https://github.com/comfyanonymous/ComfyUI
 
 安装Python依赖：
-bash
+
 pip install requests
 🖼️ ComfyUI配置
 本地运行ComfyUI：
-bash
-# 1. 下载安装ComfyUI
+
+ 1. 下载安装ComfyUI
 git clone https://github.com/comfyanonymous/ComfyUI
 cd ComfyUI
 
-# 2. 下载模型文件（保存到指定目录）
-# 模型名称：anything-v5-PrtRE.safetensors
-# 保存路径：ComfyUI/models/checkpoints/
+ 2. 下载模型文件（保存到指定目录）
+ 模型名称：anything-v5-PrtRE.safetensors
+ 保存路径：ComfyUI/models/checkpoints/
 
-# 3. 启动ComfyUI
+ 3. 启动ComfyUI
 python main.py
 
-# 4. 验证服务运行
-# 浏览器访问：http://127.0.0.1:8188
+ 4. 验证服务运行
+ 浏览器访问：http://127.0.0.1:8188
 
 
 ## 📝 使用方法
 
 运行程序：
-bash
-# 方式1：Windows双击运行
+
+ 方式1：Windows双击运行
 双击 run_simple.bat
 
-# 方式2：命令行运行
+ 方式2：命令行运行
 python main.py
 
 修改生成主题：
@@ -82,10 +82,10 @@ python main.py
 python
 if __name__ == "__main__":
     USER_TOPIC = "你想要的主题"  # 修改这里
-    # 例如：
-    # USER_TOPIC = "夏日海滩度假场景"
-    # USER_TOPIC = "未来科技城市夜景"
-    # USER_TOPIC = "可爱猫咪玩毛线球"
+     例如：
+     USER_TOPIC = "夏日海滩度假场景"
+     USER_TOPIC = "未来科技城市夜景"
+     USER_TOPIC = "可爱猫咪玩毛线球"
 
 
 ## 📊 输出结果
