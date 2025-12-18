@@ -1,0 +1,23 @@
+=== AIGC Pipeline Configuration Guide ===
+
+1. Edit main.py file:
+   Open main.py in any text editor (Notepad, VS Code, etc.)
+
+2. Find these lines near the top:
+
+   COZE_CONFIG = {
+       "bot_id": "7584493784956796974",  # <-- Change this to your Coze Bot ID
+       "api_key": "pat_ivmwvr7EwaQbUb9ZqonpvZYjXLpjTOi1Dt9w5kwehdbI66Bxh06344to4U6QsjGz"  # <-- Change this
+   }
+   
+   DEEPSEEK_API_KEY = "sk-7b64922f9d6848f99f53204229c9cddb"  # <-- Change this
+
+3. Replace with your own API keys:
+   - Coze Bot ID: From https://www.coze.cn/open
+   - Coze API Key: From Coze platform (starts with "pat_")
+   - DeepSeek API Key: From https://platform.deepseek.com (starts with "sk-")
+
+4. Save the file and run run.bat
+
+=== Alternative: Use run_simple.bat ===
+If run.bat has issues, use run_simple.bat instead.
