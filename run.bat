@@ -9,70 +9,68 @@ echo        AIGC Content Generation System
 echo ================================================
 echo.
 
-echo [INFO] Loading configuration from .env file...
-echo.
-
-:: 检查.env文件是否存在
-if not exist ".env" (
-    echo [ERROR] .env file not found!
+echo [1] Checking Python installation...
+python --version 2>nul
+if errorlevel 1 (
+    echo ERROR: Python not found or not in PATH
     echo.
-    echo Please:
-    echo 1. Copy .env.example to .env
-    echo 2. Edit .env and add your API keys
-    echo 3. Run again
+    echo Please install Python 3.8+ from:
+    echo https://www.python.org/downloads/
     echo.
     pause
     exit /b 1
 )
 
-:: 加载.env文件中的变量
-for /f "usebackq tokens=*" %%i in (".env") do (
-    for /f "tokens=1,2 delims==" %%a in ("%%i") do (
-        if not "%%a"=="" if not "%%b"=="" (
-            set "%%a=%%b"
-        )
-    )
-)
-
-:: 显示加载的配置（隐藏敏感信息）
-echo [CONFIG] Coze Bot ID: %COZE_BOT_ID%
-echo [CONFIG] Coze API Key: %COZE_API_KEY:~0,10%...
-echo [CONFIG] DeepSeek API Key: %DEEPSEEK_API_KEY:~0,10%...
-echo.
-
-echo [INFO] Checking Python...
-python --version
+echo [2] Checking dependencies...
+pip show requests >nul 2>nul
 if errorlevel 1 (
-    echo [ERROR] Python not found!
-    pause
-    exit /b 1
-)
-
-echo [INFO] Checking dependencies...
-pip show requests >nul 2>&1
-if errorlevel 1 (
-    echo [INFO] Installing requests...
+    echo Installing requests library...
     pip install requests --quiet
+    echo OK: requests installed
+) else (
+    echo OK: requests already installed
 )
 
-echo [INFO] Creating output directory...
-if not exist "comfyui_outputs" mkdir comfyui_outputs
+echo [3] Checking configuration...
+echo IMPORTANT: Make sure you have edited main.py
+echo and replaced the API keys with your own.
+echo.
+echo Current API keys in main.py:
+echo Coze Bot ID: 7584493784956796974
+echo Coze API Key: pat_ivmwvr7EwaQbUb9ZqonpvZYjXLpjTOi1Dt9w5kwehdbI66Bxh06344to4U6QsjGz
+echo DeepSeek API Key: sk-7b64922f9d6848f99f53204229c9cddb
+echo.
+set /p confirm="Are these your API keys? (y/n): "
+if /i "%confirm%" neq "y" (
+    echo.
+    echo Please edit main.py file to change API keys.
+    echo Open main.py in Notepad? (y/n):
+    set /p edit=
+    if /i "%edit%"=="y" notepad main.py
+    echo Please restart after editing.
+    pause
+    exit /b 1
+)
+
+echo [4] Creating output directory...
+if not exist "comfyui_outputs" (
+    mkdir comfyui_outputs
+    echo Created output directory
+) else (
+    echo Output directory exists
+)
 
 echo.
 echo ================================================
-echo [INFO] Starting generation...
+echo Starting generation...
+echo Topic: "A Gundam model"
 echo ================================================
 echo.
-
-:: 设置环境变量并运行Python
-set COZE_BOT_ID=%COZE_BOT_ID%
-set COZE_API_KEY=%COZE_API_KEY%
-set DEEPSEEK_API_KEY=%DEEPSEEK_API_KEY%
 
 python main.py
 
 echo.
 echo ================================================
-echo [INFO] Process completed!
+echo Process completed!
 echo ================================================
 pause
