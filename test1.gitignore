@@ -1,0 +1,17 @@
+# Python缓存文件
+__pycache__/
+*.pyc
+
+# 环境变量文件（包含敏感信息）
+.env
+
+# 生成的图片
+comfyui_outputs/*
+
+# 系统文件
+.DS_Store  # Mac系统文件
+Thumbs.db  # Windows缩略图
+
+# IDE配置
+.vscode/
+.idea/
