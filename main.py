@@ -234,8 +234,14 @@ def trigger_comfyui_workflow(workflow_payload, server_url, output_dir):
     """触发ComfyUI工作流生成图片"""
     # 确保使用绝对路径
     output_dir = os.path.abspath(output_dir)
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    def trigger_comfyui_workflow(workflow_payload, server_url, output_dir):
+    try:
+        # 自动创建输出目录（包括父目录）
+        os.makedirs(output_dir, exist_ok=True)
+        print(f"✅ 输出目录已创建: {output_dir}")
+    except Exception as e:
+        print(f"❌ 无法创建输出目录: {e}")
+        return None
 
     # 先测试连接
     try:
@@ -656,3 +662,4 @@ if __name__ == "__main__":
     if os.name == 'nt':
 
         input("\n按Enter键退出...")
+
