@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# 环境变量文件（重要！保护API密钥）
+.env
+.env.local
+.env.*.local
+
+# 生成的图片和输出
+comfyui_outputs/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+~*
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 临时文件
+*.tmp
+*.temp
+
+# 其他
+*.bak
+*.backup
