@@ -16,7 +16,7 @@
 步骤1：编辑主程序文件
 
 用文本编辑器打开 main.py，找到配置部分：
-# ========== 用户配置区 ==========
+#========== 用户配置区 ==========
 COZE_CONFIG = {
     "bot_id": "7584493784956796974",  # ← 替换为你的Coze Bot ID
     "api_key": "pat_ivmwvr7EwaQbUb9ZqonpvZYjXLpjTOi1Dt9w5kwehdbI66Bxh06344to4U6QsjGz"  # ← 替换为你的Coze API密钥
