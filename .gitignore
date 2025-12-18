@@ -15,7 +15,7 @@ venv.bak/
 .env.*.local
 
 # 生成的图片和输出
-comfyui_outputs/
+
 *.png
 *.jpg
 *.jpeg
