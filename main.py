@@ -5,19 +5,28 @@ import os
 import shutil
 from PIL import Image, ImageDraw, ImageFont
 
+# ========== 加载环境变量配置 ==========
+# 如果没有安装python-dotenv，可以删除下面这行
+# 只需要确保.env文件存在即可
+
 # ========== 用户配置区 ==========
+# 从环境变量读取配置，如果不存在则使用默认值
 COZE_CONFIG = {
-    "bot_id": "7584493784956796974",
-    "api_key": "pat_ivmwvr7EwaQbUb9ZqonpvZYjXLpjTOi1Dt9w5kwehdbI66Bxh06344to4U6QsjGz"
-}
-DEEPSEEK_API_KEY = "sk-7b64922f9d6848f99f53204229c9cddb"
-COMFYUI_CONFIG = {
-    "server_url": "http://127.0.0.1:8188",
-    "workflow_file": "test1.json",
-    "positive_node_id": "1",
-    "output_base_dir": "./comfyui_outputs"  # 改为基础目录
+    "bot_id": os.environ.get("COZE_BOT_ID", "你的默认机器人ID"),
+    "api_key": os.environ.get("COZE_API_KEY", "你的默认Coze密钥")
 }
 
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "你的默认DeepSeek密钥")
+
+COMFYUI_CONFIG = {
+    "server_url": os.environ.get("COMFYUI_SERVER_URL", "http://127.0.0.1:8188"),
+    "workflow_file": os.environ.get("COMFYUI_WORKFLOW_FILE", "test1.json"),
+    "positive_node_id": "1",
+    "output_dir": os.environ.get("COMFYUI_OUTPUT_DIR", "./comfyui_outputs")
+}
+
+# 注意：上面的默认值应该替换成你代码中原来的值
+# 或者直接留空字符串，强制用户必须配置.env文件
 
 # ========== 获取下一个可用输出目录 ==========
 def get_next_output_dir(base_dir):
@@ -645,4 +654,5 @@ if __name__ == "__main__":
 
     # 程序结束后暂停（Windows）
     if os.name == 'nt':
+
         input("\n按Enter键退出...")
